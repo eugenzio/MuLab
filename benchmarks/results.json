@@ -1,0 +1,393 @@
+{
+  "hardware": {
+    "cpu": "Apple M4",
+    "logicalCores": 10,
+    "totalRamGB": 17.18,
+    "os": "darwin 24.6.0 (arm64)",
+    "browser": "Playwright Chromium 148.0.7778.96",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "measuredAt": "2026-06-12T00:23:36.350Z"
+  },
+  "method": {
+    "repsPerCondition": 12,
+    "warmupDiscarded": 1,
+    "throttleRates": [
+      1,
+      4,
+      6
+    ],
+    "primarySubject": "S001",
+    "workerTiming": "real app Web Worker (src/workers/pipeline.worker.ts); per-stage from worker progress-event timestamps; total via performance.now",
+    "mainThreadTiming": "identical runFromBuffers on the page main thread (CDP throttling reaches the main thread → valid CPU-slowdown proxy)",
+    "memory": "identical runFromBuffers on the main thread so performance.memory.usedJSHeapSize (with --enable-precise-memory-info) captures pipeline allocations",
+    "accuracyGuard": "every rep meanAcc within 0.000001 of the oracle mean"
+  },
+  "caveats": {
+    "throttlingReachesWorker": "CDP Emulation.setCPUThrottlingRate throttles the renderer MAIN thread but NOT dedicated Web Workers. conditionsWorker is therefore ~flat across 1x/4x/6x (evidence). The low-spec CPU PROXY is conditionsMain (identical compute on the throttled main thread).",
+    "physicalDevice": "Throttled numbers are a CPU-slowdown PROXY, NOT a physical low-spec device. Run `npm run benchmark` on a real device for that.",
+    "memory": "performance.memory.usedJSHeapSize is Chromium-only, coarse/whole-heap (app + GC slack), not exact pipeline working set. measureUserAgentSpecificMemory skipped (no cross-origin isolation).",
+    "stageBoundaries": "Per-stage durations derive from progress-event timestamps (chunk granularity); \"parse\" = EDF parse + concat + event extraction."
+  },
+  "headline": {
+    "realAppWorkerUnthrottledMs": {
+      "mean": 1695.7083333333333,
+      "std": 20.31101168457705,
+      "min": 1673.8999998569489,
+      "max": 1742.1999998092651,
+      "n": 12
+    },
+    "peakHeapMB": 192.15086460113525
+  },
+  "memory": {
+    "available": true,
+    "baseMB": 9.0449800491333,
+    "peakMB": 192.15086460113525,
+    "deltaMB": 183.10588455200195,
+    "heapLimitMB": 4096,
+    "meanAcc": 0.8666666666666666
+  },
+  "conditionsWorker": [
+    {
+      "rate": 1,
+      "total": {
+        "mean": 1695.7083333333333,
+        "std": 20.31101168457705,
+        "min": 1673.8999998569489,
+        "max": 1742.1999998092651,
+        "n": 12
+      },
+      "perStage": {
+        "parse": {
+          "mean": 198.6916666428248,
+          "std": 10.117442928504603,
+          "min": 191.70000004768372,
+          "max": 228.79999995231628,
+          "n": 12
+        },
+        "filter": {
+          "mean": 1185.141666630904,
+          "std": 5.628249914451803,
+          "min": 1179.0999999046326,
+          "max": 1199.2999999523163,
+          "n": 12
+        },
+        "epoch": {
+          "mean": 60.86666671435038,
+          "std": 7.177152316264457,
+          "min": 56.799999952316284,
+          "max": 81.60000014305115,
+          "n": 12
+        },
+        "csp+lda": {
+          "mean": 49.07500000794729,
+          "std": 1.5771809697788604,
+          "min": 47.60000014305115,
+          "max": 52.09999990463257,
+          "n": 12
+        },
+        "cv": {
+          "mean": 201.93333333730698,
+          "std": 13.163747311382329,
+          "min": 195.69999980926514,
+          "max": 243.40000009536743,
+          "n": 12
+        }
+      },
+      "reps": 12
+    },
+    {
+      "rate": 4,
+      "total": {
+        "mean": 1756.4166666666667,
+        "std": 28.25696479877805,
+        "min": 1735.5,
+        "max": 1828,
+        "n": 12
+      },
+      "perStage": {
+        "parse": {
+          "mean": 210.2249999642372,
+          "std": 17.581142995640818,
+          "min": 198.59999990463257,
+          "max": 260.39999985694885,
+          "n": 12
+        },
+        "filter": {
+          "mean": 1226.8750000198681,
+          "std": 5.36031291740954,
+          "min": 1219.7000000476837,
+          "max": 1237.5,
+          "n": 12
+        },
+        "epoch": {
+          "mean": 61.60833332935969,
+          "std": 6.989922340500332,
+          "min": 58.60000014305115,
+          "max": 83.69999980926514,
+          "n": 12
+        },
+        "csp+lda": {
+          "mean": 50.083333353201546,
+          "std": 1.655752146702861,
+          "min": 48.60000014305115,
+          "max": 54.40000009536743,
+          "n": 12
+        },
+        "cv": {
+          "mean": 207.625,
+          "std": 12.559322871431117,
+          "min": 200.59999990463257,
+          "max": 246.5,
+          "n": 12
+        }
+      },
+      "reps": 12
+    },
+    {
+      "rate": 6,
+      "total": {
+        "mean": 1747.941666662693,
+        "std": 24.760946487469216,
+        "min": 1727.3999998569489,
+        "max": 1808,
+        "n": 12
+      },
+      "perStage": {
+        "parse": {
+          "mean": 206.49999994039536,
+          "std": 10.858176631733173,
+          "min": 199.59999990463257,
+          "max": 238.59999990463257,
+          "n": 12
+        },
+        "filter": {
+          "mean": 1226.6250000397365,
+          "std": 7.867669758745881,
+          "min": 1218,
+          "max": 1239.6000001430511,
+          "n": 12
+        },
+        "epoch": {
+          "mean": 62.73333328962326,
+          "std": 7.955139404171655,
+          "min": 58.5,
+          "max": 84.70000004768372,
+          "n": 12
+        },
+        "csp+lda": {
+          "mean": 49.89166671037674,
+          "std": 1.508435835238194,
+          "min": 48.09999990463257,
+          "max": 53.09999990463257,
+          "n": 12
+        },
+        "cv": {
+          "mean": 202.19166668256125,
+          "std": 1.855928296345747,
+          "min": 199.40000009536743,
+          "max": 206.10000014305115,
+          "n": 12
+        }
+      },
+      "reps": 12
+    }
+  ],
+  "conditionsMain": [
+    {
+      "rate": 1,
+      "total": {
+        "mean": 1013.4000000158945,
+        "std": 8.999797934325281,
+        "min": 991.8000001907349,
+        "max": 1022.2000000476837,
+        "n": 12
+      },
+      "perStage": {
+        "parse": {
+          "mean": 108.625,
+          "std": 3.369684357372115,
+          "min": 104.5,
+          "max": 115.5,
+          "n": 12
+        },
+        "filter": {
+          "mean": 598.5416666269302,
+          "std": 9.567317338395599,
+          "min": 570.3999998569489,
+          "max": 606.0999999046326,
+          "n": 12
+        },
+        "epoch": {
+          "mean": 57.991666654745735,
+          "std": 0.271220598000371,
+          "min": 57.700000047683716,
+          "max": 58.5,
+          "n": 12
+        },
+        "csp+lda": {
+          "mean": 48.72499998410543,
+          "std": 0.8443663568544053,
+          "min": 48,
+          "max": 50.5,
+          "n": 12
+        },
+        "cv": {
+          "mean": 199.51666675011316,
+          "std": 2.2770928243256194,
+          "min": 197.09999990463257,
+          "max": 205.80000019073486,
+          "n": 12
+        }
+      },
+      "reps": 12
+    },
+    {
+      "rate": 4,
+      "total": {
+        "mean": 3953.8333333333335,
+        "std": 15.925470369171386,
+        "min": 3928.800000190735,
+        "max": 3981.7000000476837,
+        "n": 12
+      },
+      "perStage": {
+        "parse": {
+          "mean": 438.09166663885117,
+          "std": 8.042552593355973,
+          "min": 426.5,
+          "max": 454.2000000476837,
+          "n": 12
+        },
+        "filter": {
+          "mean": 2370.6416666706405,
+          "std": 5.141357893063677,
+          "min": 2363.899999856949,
+          "max": 2379.7999999523163,
+          "n": 12
+        },
+        "epoch": {
+          "mean": 223.27499999602637,
+          "std": 2.461383534225908,
+          "min": 220.40000009536743,
+          "max": 228.79999995231628,
+          "n": 12
+        },
+        "csp+lda": {
+          "mean": 182.98333330949148,
+          "std": 2.056843721859324,
+          "min": 180.59999990463257,
+          "max": 187.20000004768372,
+          "n": 12
+        },
+        "cv": {
+          "mean": 738.8416667183241,
+          "std": 7.726396105300319,
+          "min": 726.1000001430511,
+          "max": 752.4000000953674,
+          "n": 12
+        }
+      },
+      "reps": 12
+    },
+    {
+      "rate": 6,
+      "total": {
+        "mean": 5991.533333321412,
+        "std": 63.10881412934856,
+        "min": 5907.099999904633,
+        "max": 6089.599999904633,
+        "n": 12
+      },
+      "perStage": {
+        "parse": {
+          "mean": 667.5750000079473,
+          "std": 19.9059207854412,
+          "min": 645,
+          "max": 704.5,
+          "n": 12
+        },
+        "filter": {
+          "mean": 3575.2250000039735,
+          "std": 24.60163061810646,
+          "min": 3545.0999999046326,
+          "max": 3619.9000000953674,
+          "n": 12
+        },
+        "epoch": {
+          "mean": 340.5166666706403,
+          "std": 9.516954507957907,
+          "min": 331.40000009536743,
+          "max": 366.69999980926514,
+          "n": 12
+        },
+        "csp+lda": {
+          "mean": 281.10000002384186,
+          "std": 8.00613401871883,
+          "min": 271.40000009536743,
+          "max": 294.10000014305115,
+          "n": 12
+        },
+        "cv": {
+          "mean": 1127.1166666150093,
+          "std": 23.254005816305597,
+          "min": 1095.3999998569489,
+          "max": 1172.5999999046326,
+          "n": 12
+        }
+      },
+      "reps": 12
+    }
+  ],
+  "crossSubject": [
+    {
+      "subject": "S001",
+      "totalMs": 1763.4000000953674,
+      "meanAcc": 0.8666666666666666
+    },
+    {
+      "subject": "S002",
+      "totalMs": 1744.7999999523163,
+      "meanAcc": 0.8666666666666666
+    },
+    {
+      "subject": "S003",
+      "totalMs": 1752,
+      "meanAcc": 0.6
+    },
+    {
+      "subject": "S004",
+      "totalMs": 1752.0999999046326,
+      "meanAcc": 0.6888888888888889
+    },
+    {
+      "subject": "S005",
+      "totalMs": 1741.7000000476837,
+      "meanAcc": 0.5777777777777777
+    },
+    {
+      "subject": "S006",
+      "totalMs": 1723.2999999523163,
+      "meanAcc": 0.3333333333333333
+    },
+    {
+      "subject": "S007",
+      "totalMs": 1761.8999998569489,
+      "meanAcc": 0.9333333333333332
+    },
+    {
+      "subject": "S008",
+      "totalMs": 1750.4000000953674,
+      "meanAcc": 0.6666666666666667
+    },
+    {
+      "subject": "S009",
+      "totalMs": 1722.5,
+      "meanAcc": 0.3555555555555555
+    },
+    {
+      "subject": "S010",
+      "totalMs": 1738.8999998569489,
+      "meanAcc": 0.5777777777777778
+    }
+  ]
+}

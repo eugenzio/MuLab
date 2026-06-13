@@ -1,0 +1,7 @@
+# Phase 2 reference-oracle dependencies (pinned).
+# Built on Python 3.12 (system 3.14 has no wheels for these). Resolved patch
+# versions are recorded in the Phase 2 report and in tests/fixtures/params.json["env"].
+mne==1.8.0
+scikit-learn==1.5.2
+numpy==2.0.2
+scipy==1.14.1

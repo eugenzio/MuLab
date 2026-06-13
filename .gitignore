@@ -1,0 +1,22 @@
+node_modules/
+dist/
+data/raw/
+public/sample/
+scripts/oracle/.venv/
+__pycache__/
+*.pyc
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+*.spl
+papers/**/*.pdf
+!papers/shared/figures/*.pdf
+*.log
+.DS_Store
+.vite/
+coverage/

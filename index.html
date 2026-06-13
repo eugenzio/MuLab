@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EEG/BCI Web Tool — client-side motor-imagery pipeline</title>
+    <style>
+      :root { --fg: #1f2937; --muted: #6b7280; --accent: #2563eb; --ok: #16a34a; --bd: #e5e7eb; }
+      body { font-family: system-ui, sans-serif; max-width: 60rem; margin: 2rem auto; padding: 0 1rem; color: var(--fg); }
+      h1 { margin-bottom: 0.25rem; }
+      .muted { color: var(--muted); font-size: 0.9rem; }
+      .card { border: 1px solid var(--bd); border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+      .row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+      button { background: var(--accent); color: #fff; border: 0; border-radius: 6px; padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+      button:disabled { background: #9ca3af; cursor: not-allowed; }
+      select, input[type=file] { font-size: 0.95rem; }
+      progress { width: 100%; height: 1rem; }
+      .hidden { display: none; }
+      .err { color: #b91c1c; }
+      .metric { font-size: 2rem; font-weight: 700; color: var(--ok); }
+      table { border-collapse: collapse; }
+      td, th { padding: 0.2rem 0.6rem; text-align: right; }
+      .csp-row { display: flex; align-items: center; gap: 2px; margin: 2px 0; }
+      .csp-bar { width: 3px; background: var(--accent); }
+      .csp-bar.neg { background: #dc2626; }
+      code { background: #f4f4f5; padding: 0 0.25rem; border-radius: 3px; }
+    </style>
+  </head>
+  <body>
+    <h1>EEG/BCI Web Tool</h1>
+    <p class="muted">
+      100% client-side motor-imagery pipeline (filter → epoch → CSP → LDA → 5-fold CV) running in a
+      Web Worker. No backend, no install. Numerical equivalence to MNE-Python was established across
+      S001–S010 in validation (see README).
+    </p>
+
+    <div class="card">
+      <div class="row">
+        <label>Subject:
+          <select id="subject"></select>
+        </label>
+        <label>EDF files (R04, R08, R12):
+          <input id="files" type="file" accept=".edf" multiple />
+        </label>
+        <button id="run" disabled>Run analysis</button>
+        <button id="sample" class="hidden">Run bundled S001 sample</button>
+      </div>
+      <p id="hint" class="muted"></p>
+      <p id="error" class="err"></p>
+    </div>
+
+    <div id="progressCard" class="card hidden">
+      <div id="stage" class="muted">Starting…</div>
+      <progress id="bar" max="1" value="0"></progress>
+    </div>
+
+    <div id="results" class="card hidden">
+      <div class="row" style="align-items: baseline;">
+        <span class="metric" id="meanAcc"></span>
+        <span class="muted">mean CV accuracy &nbsp;|&nbsp; <span id="runtime"></span> &nbsp;|&nbsp; <span id="foldNote"></span></span>
+      </div>
+      <h3>Per-fold accuracy</h3>
+      <table id="folds"></table>
+      <h3>CSP spatial filters (<span id="ncomp"></span> components × 64 channels)</h3>
+      <div id="csp"></div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>EEG/BCI benchmark harness</title>
+  </head>
+  <body>
+    <h1>EEG/BCI benchmark harness</h1>
+    <p>Driven by Playwright (<code>scripts/benchmark.mjs</code>). Feeds EDFs via the hidden input,
+      runs the real pipeline in the Web Worker, and returns timing/memory via <code>window.__bench*</code>.</p>
+    <input id="edf" type="file" accept=".edf" multiple style="position:absolute;left:-9999px" />
+    <pre id="log">ready</pre>
+    <script type="module" src="/benchmarks/bench.ts"></script>
+  </body>
+</html>

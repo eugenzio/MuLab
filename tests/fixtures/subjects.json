@@ -1,0 +1,206 @@
+{
+  "generatedAt": "2026-06-10T21:48:16.148970+00:00",
+  "env": {
+    "python": "3.12.12",
+    "numpy": "2.0.2",
+    "scipy": "1.14.1",
+    "scikit_learn": "1.5.2",
+    "mne": "1.8.0",
+    "platform": "macOS-15.6.1-arm64-arm-64bit"
+  },
+  "validated": [
+    "S001",
+    "S002",
+    "S003",
+    "S004",
+    "S005",
+    "S006",
+    "S007",
+    "S008",
+    "S009",
+    "S010"
+  ],
+  "skipped": [],
+  "summary": [
+    {
+      "subject": "S001",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 23,
+      "n_right": 22,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.8666666666666666,
+      "per_fold_acc": [
+        1.0,
+        1.0,
+        1.0,
+        0.6666666666666666,
+        0.6666666666666666
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S002",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 23,
+      "n_right": 22,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.8666666666666666,
+      "per_fold_acc": [
+        0.8888888888888888,
+        0.7777777777777778,
+        1.0,
+        0.7777777777777778,
+        0.8888888888888888
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S003",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 23,
+      "n_right": 22,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.6,
+      "per_fold_acc": [
+        0.5555555555555556,
+        0.4444444444444444,
+        0.7777777777777778,
+        0.4444444444444444,
+        0.7777777777777778
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S004",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 23,
+      "n_right": 22,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.6888888888888889,
+      "per_fold_acc": [
+        0.6666666666666666,
+        0.6666666666666666,
+        0.5555555555555556,
+        0.7777777777777778,
+        0.7777777777777778
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S005",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 21,
+      "n_right": 24,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.5777777777777777,
+      "per_fold_acc": [
+        0.6666666666666666,
+        0.7777777777777778,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.3333333333333333
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S006",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 24,
+      "n_right": 21,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.3333333333333333,
+      "per_fold_acc": [
+        0.4444444444444444,
+        0.4444444444444444,
+        0.3333333333333333,
+        0.1111111111111111,
+        0.3333333333333333
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S007",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 23,
+      "n_right": 22,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.9333333333333332,
+      "per_fold_acc": [
+        1.0,
+        0.8888888888888888,
+        0.8888888888888888,
+        0.8888888888888888,
+        1.0
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S008",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 22,
+      "n_right": 23,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.6666666666666667,
+      "per_fold_acc": [
+        0.5555555555555556,
+        0.6666666666666666,
+        0.8888888888888888,
+        0.5555555555555556,
+        0.6666666666666666
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S009",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 24,
+      "n_right": 21,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.3555555555555555,
+      "per_fold_acc": [
+        0.1111111111111111,
+        0.3333333333333333,
+        0.4444444444444444,
+        0.5555555555555556,
+        0.3333333333333333
+      ],
+      "mne_crosscheck_min": 1.0
+    },
+    {
+      "subject": "S010",
+      "status": "validated",
+      "n_epochs": 45,
+      "n_left": 24,
+      "n_right": 21,
+      "fs_hz": 160.0,
+      "n_channels": 64,
+      "mean_acc": 0.5777777777777778,
+      "per_fold_acc": [
+        0.5555555555555556,
+        0.7777777777777778,
+        0.5555555555555556,
+        0.5555555555555556,
+        0.4444444444444444
+      ],
+      "mne_crosscheck_min": 1.0
+    }
+  ]
+}

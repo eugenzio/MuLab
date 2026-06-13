@@ -1,0 +1,29 @@
+{
+  "name": "eeg-bci-webtool",
+  "version": "0.0.1",
+  "description": "Fully client-side EEG/BCI motor-imagery analysis and benchmark web tool (Phase 1: data-parsing feasibility spike)",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "fetch-data": "node scripts/fetch-data.mjs",
+    "prep-sample": "node scripts/prep-sample.mjs",
+    "benchmark": "node scripts/benchmark.mjs"
+  },
+  "dependencies": {
+    "edfdecoder": "^0.1.2",
+    "ml-matrix": "^6.12.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "playwright": "^1.60.0",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.4"
+  }
+}

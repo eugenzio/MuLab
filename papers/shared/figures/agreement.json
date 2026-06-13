@@ -1,0 +1,81 @@
+{
+  "rows": [
+    {
+      "subject": "S001",
+      "filterR": 1,
+      "cspFrob": 8.19e-15,
+      "ldaDiff": 2.28e-13,
+      "cvMean": 0.8667
+    },
+    {
+      "subject": "S002",
+      "filterR": 1,
+      "cspFrob": 6.62e-15,
+      "ldaDiff": 2.39e-12,
+      "cvMean": 0.8667
+    },
+    {
+      "subject": "S003",
+      "filterR": 1,
+      "cspFrob": 7.72e-15,
+      "ldaDiff": 3.22e-13,
+      "cvMean": 0.6
+    },
+    {
+      "subject": "S004",
+      "filterR": 1,
+      "cspFrob": 1.74e-14,
+      "ldaDiff": 1.45e-12,
+      "cvMean": 0.6889
+    },
+    {
+      "subject": "S005",
+      "filterR": 1,
+      "cspFrob": 8.53e-15,
+      "ldaDiff": 4.12e-13,
+      "cvMean": 0.5778
+    },
+    {
+      "subject": "S006",
+      "filterR": 1,
+      "cspFrob": 1.14e-14,
+      "ldaDiff": 1.69e-13,
+      "cvMean": 0.3333
+    },
+    {
+      "subject": "S007",
+      "filterR": 1,
+      "cspFrob": 7.87e-15,
+      "ldaDiff": 1.71e-13,
+      "cvMean": 0.9333
+    },
+    {
+      "subject": "S008",
+      "filterR": 1,
+      "cspFrob": 1.43e-14,
+      "ldaDiff": 3.29e-13,
+      "cvMean": 0.6667
+    },
+    {
+      "subject": "S009",
+      "filterR": 1,
+      "cspFrob": 1.2e-14,
+      "ldaDiff": 4.64e-13,
+      "cvMean": 0.3556
+    },
+    {
+      "subject": "S010",
+      "filterR": 1,
+      "cspFrob": 9.54e-15,
+      "ldaDiff": 1.81e-13,
+      "cvMean": 0.5778
+    }
+  ],
+  "summary": {
+    "cspFrobMin": 6.62e-15,
+    "cspFrobMax": 1.74e-14,
+    "ldaDiffMin": 1.69e-13,
+    "ldaDiffMax": 2.39e-12,
+    "filterRMin": 1
+  }
+}

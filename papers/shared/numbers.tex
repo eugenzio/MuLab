@@ -1,0 +1,67 @@
+% AUTO-GENERATED from repo data — DO NOT hand-edit numbers. Regenerate: node scripts (see papers/README).
+% Every macro = a real measured value from the cited source file.
+
+% ---- per-subject 5-fold CV mean accuracy (percent) ----
+\newcommand{\AccOne}{86.7}% source: tests/fixtures/S001/cv_accuracy.json
+\newcommand{\AccTwo}{86.7}% source: tests/fixtures/S002/cv_accuracy.json
+\newcommand{\AccThree}{60.0}% source: tests/fixtures/S003/cv_accuracy.json
+\newcommand{\AccFour}{68.9}% source: tests/fixtures/S004/cv_accuracy.json
+\newcommand{\AccFive}{57.8}% source: tests/fixtures/S005/cv_accuracy.json
+\newcommand{\AccSix}{33.3}% source: tests/fixtures/S006/cv_accuracy.json
+\newcommand{\AccSeven}{93.3}% source: tests/fixtures/S007/cv_accuracy.json
+\newcommand{\AccEight}{66.7}% source: tests/fixtures/S008/cv_accuracy.json
+\newcommand{\AccNine}{35.6}% source: tests/fixtures/S009/cv_accuracy.json
+\newcommand{\AccTen}{57.8}% source: tests/fixtures/S010/cv_accuracy.json
+\newcommand{\AccMin}{33.3}% source: min over tests/fixtures/*/cv_accuracy.json
+\newcommand{\AccMax}{93.3}% source: max over tests/fixtures/*/cv_accuracy.json
+
+% ---- browser-vs-MNE agreement (machine precision) ----
+\newcommand{\FilterR}{1.0}% source: tests/pipeline/multisubject.test.ts (filterR, 12 dp)
+\newcommand{\CspFrobMin}{\ensuremath{6.6\times10^{-15}}}% source: multisubject test (CSP Frobenius)
+\newcommand{\CspFrobMax}{\ensuremath{1.7\times10^{-14}}}% source: multisubject test (CSP Frobenius)
+\newcommand{\LdaDiffMin}{\ensuremath{1.7\times10^{-13}}}% source: multisubject test (LDA weight diff)
+\newcommand{\LdaDiffMax}{\ensuremath{2.4\times10^{-12}}}% source: multisubject test (LDA weight diff)
+
+% ---- dataset / counts ----
+\newcommand{\Nsubjects}{10}% source: tests/fixtures/subjects.json
+\newcommand{\Nskipped}{0}% source: tests/fixtures/subjects.json
+\newcommand{\Nepochs}{45}% source: tests/fixtures/*/params.json n_epochs
+\newcommand{\Nchannels}{64}% source: params.json n_channels
+\newcommand{\Fs}{160}% source: params.json fs_hz
+\newcommand{\Ntimes}{321}% source: params.json epoch.n_times
+\newcommand{\Ntests}{40}% source: npx vitest run (Test Files 13 / Tests 40)
+
+% ---- method constants (match the code/oracle exactly) ----
+\newcommand{\FirLo}{8}% source: params.json filter.cutoff_hz
+\newcommand{\FirHi}{30}% source: params.json filter.cutoff_hz
+\newcommand{\FirTaps}{165}% source: params.json filter.numtaps
+\newcommand{\Tmin}{0.5}% source: params.json epoch.tmin_s
+\newcommand{\Tmax}{2.5}% source: params.json epoch.tmax_s
+\newcommand{\CspReg}{0.1}% source: params.json csp.reg
+\newcommand{\CspComp}{4}% source: params.json csp.n_components
+\newcommand{\LdaShrink}{0.1}% source: params.json lda.shrinkage
+\newcommand{\Folds}{5}% source: params.json cv.n_splits
+\newcommand{\Seed}{42}% source: params.json cv.random_state
+
+% ---- oracle environment ----
+\newcommand{\MneVer}{1.8.0}% source: subjects.json env
+\newcommand{\SklearnVer}{1.5.2}% source: subjects.json env
+\newcommand{\ScipyVer}{1.14.1}% source: subjects.json env
+\newcommand{\NumpyVer}{2.0.2}% source: subjects.json env
+\newcommand{\PyVer}{3.12.12}% source: subjects.json env
+
+% ---- benchmark (real, reference run) ----
+\newcommand{\WorkerOneX}{1696}% source: benchmarks/results.json conditionsWorker 1x
+\newcommand{\WorkerOneXStd}{20}% source: benchmarks/results.json conditionsWorker 1x
+\newcommand{\ProxyOneX}{1013}% source: benchmarks/results.json conditionsMain 1x
+\newcommand{\ProxyFourX}{3954}% source: benchmarks/results.json conditionsMain 4x
+\newcommand{\ProxySixX}{5992}% source: benchmarks/results.json conditionsMain 6x
+\newcommand{\PeakHeap}{192.2}% source: benchmarks/results.json memory.peakMB
+\newcommand{\BaseHeap}{9.0}% source: benchmarks/results.json memory.baseMB
+\newcommand{\CrossLo}{1723}% source: benchmarks/results.json crossSubject
+\newcommand{\CrossHi}{1763}% source: benchmarks/results.json crossSubject
+\newcommand{\Nreps}{12}% source: benchmarks/results.json method
+\newcommand{\HwCpu}{Apple M4}% source: benchmarks/results.json hardware
+\newcommand{\HwCores}{10}% source: benchmarks/results.json hardware
+\newcommand{\HwRam}{17.2}% source: benchmarks/results.json hardware (GB)
+\newcommand{\HwBrowser}{Chromium 148.0.7778.96}% source: benchmarks/results.json hardware

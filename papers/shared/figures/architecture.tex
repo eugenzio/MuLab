@@ -1,0 +1,29 @@
+% Descriptive architecture diagram (no data). Requires \usepackage{tikz} in the preamble.
+\begin{tikzpicture}[
+  font=\small,
+  node distance=6mm,
+  box/.style={draw, rounded corners, minimum height=8mm, align=center, fill=blue!5},
+  stage/.style={draw, minimum height=8mm, align=center, fill=green!6},
+  >=Stealth,
+]
+  \node[box] (file) {EDF file\\(file picker)};
+  \node[box, right=of file] (main) {Browser main thread\\(UI, progress)};
+  \node[draw, rounded corners, fill=orange!8, below=10mm of main, minimum width=92mm, align=center] (worker) {Web Worker (off main thread)};
+
+  \node[stage, below=7mm of worker.west, anchor=west, xshift=3mm] (parse) {parse\\EDF};
+  \node[stage, right=of parse] (filter) {FIR\\bandpass};
+  \node[stage, right=of filter] (epoch) {epoch};
+  \node[stage, right=of epoch] (csp) {CSP};
+  \node[stage, right=of csp] (lda) {LDA};
+  \node[stage, right=of lda] (cv) {5-fold\\CV};
+
+  \node[box, right=14mm of main] (res) {Results:\\acc, CSP, runtime};
+
+  \draw[->] (file) -- (main);
+  \draw[->] (main) -- (res);
+  \draw[->] (main.south) -- node[right, font=\scriptsize]{ArrayBuffers} (worker.north);
+  \draw[->] (worker.north) ++(8mm,0) -- ++(0,8mm) node[left, font=\scriptsize]{progress + result};
+  \draw[->] (parse) -- (filter); \draw[->] (filter) -- (epoch);
+  \draw[->] (epoch) -- (csp); \draw[->] (csp) -- (lda); \draw[->] (lda) -- (cv);
+  \node[font=\scriptsize, below=1mm of worker.south, anchor=north] {No backend $\cdot$ no install $\cdot$ validated against MNE-Python};
+\end{tikzpicture}
